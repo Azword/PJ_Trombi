@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="offset-s1 col s10 #fafafa grey lighten-5 z-depth-5">
+    <div class="row">
+      <h3 class="flow-text center-align">Saisis les champs à modifier</h3>
+      <img src="data:image/jpeg;base64,{{getImgBase64()}}"
+           class="materialboxed center-block" style="max-width: 200px"/>
+      <form class="col s12">
+        <div class="row">
+          <div class="offset-s4 col s4 file-field input-field center-align">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" accept="image/*" (change)="handleFileSelect($event)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" name="file">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-l2 input-field col s6 l4">
+            <input (click)="helper(1)" [(ngModel)]="updateInfo.job" id="job" type="text" class="validate" name="job">
+            <label for="job">Post Occupé</label>
+          </div>
+          <div class="input-field col s6 l4">
+            <input (click)="helper(2)" [(ngModel)]="updateInfo.quote" id="quote" type="text" class="validate"
+                   name="quote">
+            <label for="quote">Citation</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-l2 input-field col s6 l4">
+            <input (click)="helper(3)" [(ngModel)]="updateInfo.phone" id="phone" type="tel" class="validate"
+                   name="phone">
+            <label for="phone">Telephone</label>
+          </div>
+          <div class="input-field col s6 l4">
+            <input (click)="helper(4)" [(ngModel)]="updateInfo.website" id="website" type="text" class="validate"
+                   name="website">
+            <label for="website">Site Internet</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-l4 offset-s2 input-field col l4 s8">
+            <select>
+              <option value="CT_ALPHA" >CT_ALPHA</option>
+              <option value="CT_BRAVO">CT_BRAVO</option>
+              <option value="CT_CHARLIE">CT_CHARLIE</option>
+              <option value="CT_DELTA">CT_DELTA</option>
+              <option value="CT_POPA">CT_POPA</option>
+              <option value="CT_FOXTROT">CT_FOXTROT</option>
+              <option value="CT_LEGO">CT_LEGO</option>
+              <option value="CT_KAPLA">CT_KAPLA</option>
+              <option value="DT_BOM">DT_BOM</option>
+            </select>
+            <label>Team</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col s12 center-align">
+        <button class="btn waves-effect waves-light" type="submit" name="action" (click)="tryUpdate()">Mettre à jours
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <a id="menu" (click)="helper(-1)" class="waves-effect waves-light btn btn-floating"><i
+    class="material-icons">camera</i></a>
+  <div class="tap-target" data-activates="menu">
+    <div class="tap-target-content">
+      <h5>{{helperTxt.title}}</h5>
+      <p>{{helperTxt.body}}</p>
+    </div>
+  </div>
+</div>

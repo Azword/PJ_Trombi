@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>LdapAPP</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#db5945">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="./manifest.json">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<script>
+  if (navigator.onLine) {
+    var getJSON = function (url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'json';
+      xhr.onload = function () {
+        var status = xhr.status;
+        if (status === 200) {
+          callback(null, xhr.response);
+        } else {
+          callback(status, xhr.response);
+        }
+      };
+      xhr.send();
+    };
+    getJSON('http://localhost:3000/api/search',
+      function (err, data) {
+        if (err !== null && data !== null) {
+          alert('Something went wrong: ' + err);
+        } else {
+          localStorage.setItem('data', JSON.stringify(data));
+        }
+      });
+  }
+</script>
+<script>
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    console.log('Service Worker and Push is supported');
+
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function (swReg) {
+        console.log('Service Worker is registered', swReg);
+
+        swRegistration = swReg;
+      })
+      .catch(function (error) {
+        console.error('Service Worker Error', error);
+      });
+  } else {
+    console.warn('Push messaging is not supported');
+    pushButton.textContent = 'Push Not Supported';
+  }
+</script>
+<body>
+  <app-root></app-root>
+</body>
+</html>

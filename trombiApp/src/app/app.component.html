@@ -1,0 +1,57 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <div class="row">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">{{this.global.actualPage}}</a>
+        <ul class="right hide-on-med-and-down">
+          <li><i class="material-icons" (click)="global.page = 1">assignment_ind</i>
+          </li>
+          <li><i class="material-icons" (click)="global.page = 2">settings</i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+  <div *ngIf="global.page > 1">
+    <div *ngIf="global.page == 2">
+      <app-login></app-login>
+    </div>
+    <div *ngIf="global.page == 3">
+      <app-updater></app-updater>
+    </div>
+    <div *ngIf="global.page == 4">
+      <app-post-update></app-post-update>
+    </div>
+  </div>
+  <div *ngIf="global.page == 1">
+    <app-listing></app-listing>
+  </div>
+</main>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+</footer>

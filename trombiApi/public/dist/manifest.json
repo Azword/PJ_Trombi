@@ -1,0 +1,16 @@
+{
+  "name": "Pages Jaunes Trombi",
+  "short_name": "PJ Trombi",
+  "icons": [
+    {
+      "src": "./assets/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#9E9E9E",
+  "background_color": "#9E9E9E",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "landscape"
+}
