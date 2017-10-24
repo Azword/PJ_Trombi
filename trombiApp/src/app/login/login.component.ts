@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.requestService.login(this.id.user, this.id.pass).then(
       response => {
         if (response) {
-          if (!(JSON.stringify(response).includes('Forbidden'))) {
+          if (!(JSON.stringify(response).includes('Forbidden')) && response !== null) {
             this.errorMisc = false;
             this.global.page++;
             sessionStorage.setItem('username', this.id.user);
