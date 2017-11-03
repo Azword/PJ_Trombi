@@ -13,6 +13,7 @@ declare var $: any;
 })
 export class ListingComponent implements OnInit {
     public global = this.globalVar;
+    public clicked = false;
     public allUsers;
     public teamName = [
         {id: 1, name: "CT_ALPHA"},
@@ -24,7 +25,8 @@ export class ListingComponent implements OnInit {
         {id: 7, name: "CT_KAPLA"},
         {id: 8, name: "CT_DUPLO"},
         {id: 9, name: "CT_POPA"},
-        {id: 10, name: "CT_FOXTROT"}
+        {id: 10, name: "CT_LEGO"},
+        {id: 11, name: "CT_FOXTROT"}
     ];
 
     constructor(private globalVar: GlobalVarService, public requestService: RequestService) {
@@ -58,6 +60,10 @@ export class ListingComponent implements OnInit {
             this.allUsers = this.allUsers.data;
             console.log("OfflineUsers : " + this.allUsers.length);
         }
+    }
+
+    myFn() {
+        this.clicked = true;
     }
 
     getNbrMembers(ctName) {

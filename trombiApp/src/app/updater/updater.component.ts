@@ -38,7 +38,8 @@ export class UpdaterComponent implements OnInit {
         {id: 7, name: "CT_KAPLA"},
         {id: 8, name: "CT_DUPLO"},
         {id: 9, name: "CT_POPA"},
-        {id: 10, name: "CT_FOXTROT"}
+        {id: 10, name: "CT_LEGO"},
+        {id: 11, name: "CT_FOXTROT"}
     ];
     private hasImage = false;
     private base64textString;
