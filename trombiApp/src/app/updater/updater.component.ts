@@ -55,6 +55,13 @@ export class UpdaterComponent implements OnInit {
         document.title = this.global.titlePage + ' - ' + 'Updater';
         $(document).ready(function () {
             $('select').material_select();
+            $('.submit_on_enter').keydown(function(event) {
+                if (event.keyCode == 13) {
+                    this.form.submit();
+                    return false;
+                }
+            });
+
         });
         $('select').change((e) => {
             this.updateInfo.team = e.currentTarget.value;
@@ -118,6 +125,12 @@ export class UpdaterComponent implements OnInit {
         console.log(btoa(binaryString));
     }
 
+    keyDownFunction(event) {
+        if(event.keyCode == 13) {
+            this.tryUpdate();
+        }
+    }
+
     public helper(n): void {
         if (n === -1) {
             this.helperTxt.title = 'Salut !';
@@ -125,7 +138,7 @@ export class UpdaterComponent implements OnInit {
         }
         else if (n === 0) {
             this.helperTxt.title = 'File';
-            this.helperTxt.body = 'Merci de renseigner ici votre emploie (Developpeur, etc..)'
+            this.helperTxt.body = 'Merci de renseigner ici une image de moins de 20Ko'
         }
         else if (n === 1) {
             this.helperTxt.title = 'Post Occupé';
@@ -133,19 +146,19 @@ export class UpdaterComponent implements OnInit {
         }
         else if (n === 2) {
             this.helperTxt.title = 'Citation';
-            this.helperTxt.body = 'Merci de renseigner ici votre emploie (Developpeur, etc..)'
+            this.helperTxt.body = 'Merci de renseigner ici une citation qui vous tient à coeur'
         }
         else if (n === 3) {
             this.helperTxt.title = 'Téléphone';
-            this.helperTxt.body = 'Merci de renseigner ici votre emploie (Developpeur, etc..)'
+            this.helperTxt.body = 'Merci de renseigner ici votre numéro de téléphone'
         }
         else if (n === 4) {
             this.helperTxt.title = 'Site Internet';
-            this.helperTxt.body = 'Merci de renseigner ici votre emploie (Developpeur, etc..)'
+            this.helperTxt.body = 'Merci de renseigner ici votre site internet, ou un que vous affectionnez'
         }
         else if (n === 5) {
             this.helperTxt.title = 'Team';
-            this.helperTxt.body = 'Merci de renseigner ici votre emploie (Developpeur, etc..)'
+            this.helperTxt.body = 'Merci de renseigner ici votre nom d\'equipe'
         }
         $('.tap-target').tapTarget('open');
     }

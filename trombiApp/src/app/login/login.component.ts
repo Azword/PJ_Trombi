@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GlobalVarService} from "../global";
 import {RequestService} from "../request.service";
+import {tryCatch} from "rxjs/util/tryCatch";
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,12 @@ export class LoginComponent implements OnInit {
     this.global.actualPage = 'Login';
     document.title = this.global.titlePage + ' - ' + 'Login';
   }
+
+    keyDownFunction(event) {
+        if(event.keyCode == 13) {
+          this.tryConnect();
+        }
+    }
 
   public tryConnect(): void {
     if (this.id.user === '' || this.id.pass === '') {
