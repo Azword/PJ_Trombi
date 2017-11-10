@@ -22,7 +22,7 @@
                                 <div class="col m4 s12">
                                     <div class="center team-member">
                                         <img class="responsive-img img-thumbnail bounce-in"
-                                             src="data:image/jpeg;base64,{{single.img}}" alt="" style="width: 460px">
+                                             src="{{getImgBase64(single.img)}}" alt="" style="width: 460px; height: 500px;">
                                         <div class="team-content fade-up">
                                             <h5>{{single.name}}<br>
                                                 <small class="role muted">{{single.job}}</small>
@@ -58,7 +58,7 @@
                                 <div class="col offset-m4 m4 s12">
                                     <div class="center team-member">
                                         <img class="responsive-img img-thumbnail bounce-in"
-                                             src="data:image/jpeg;base64,{{single.img}}" alt="">
+                                             src="./assets/no_img.jpg" alt="Beau lémurien" title="Un beau lémurien qui crie" >
                                         <div class="team-content fade-up">
                                             <h5>{{single.name}}<br>
                                                 <small class="role muted">{{single.job}}</small>

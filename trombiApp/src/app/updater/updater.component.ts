@@ -111,24 +111,18 @@ export class UpdaterComponent implements OnInit {
         }
     }
 
-    getImgBase64() {
-        if (this.hasImage) {
-            this.updateInfo.img = `${this.base64textString}`;
-            return (this.updateInfo.img);
-        }
-        return (this.imgLink);
+    public getImgBase64(s) {
+       if (s) {
+           return ('data:image/jpeg;base64,' + s);
+       } else {
+           return ('./assets/no_img.jpg');
+       }
     }
 
     _handleReaderLoaded(readerEvt) {
         var binaryString = readerEvt.target.result;
         this.base64textString = btoa(binaryString);
         console.log(btoa(binaryString));
-    }
-
-    keyDownFunction(event) {
-        if(event.keyCode == 13) {
-            this.tryUpdate();
-        }
     }
 
     public helper(n): void {

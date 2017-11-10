@@ -44,7 +44,6 @@ export class ListingComponent implements OnInit {
             this.requestService.getAll().then(
                 success => {
                     this.allUsers = success.data;
-                    console.log("OnlineUsers : " + this.allUsers.length);
                 },
                 error => {
                     console.log(error);
@@ -58,12 +57,19 @@ export class ListingComponent implements OnInit {
                 this.global.errorUpdate = true;
             }
             this.allUsers = this.allUsers.data;
-            console.log("OfflineUsers : " + this.allUsers.length);
         }
     }
 
     myFn() {
         this.clicked = true;
+    }
+
+    public getImgBase64(s) {
+        if (s) {
+            return ('data:image/jpeg;base64,' + s);
+        } else {
+            return ('./assets/no_img.jpg');
+        }
     }
 
     getNbrMembers(ctName) {
