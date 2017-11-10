@@ -26,19 +26,11 @@
                                         <h5>{{single.name}}<br>
                                             <small class="role muted">{{single.job}}</small>
                                         </h5>
-                                        <p>"{{single.quote}}"</p><br>
+                                        <p>{{single.quote}}</p><br>
                                         <p>{{single.skills}}</p>
-                                        <a *ngIf='single.email !== ""' class="btn btn-social btn-facebook"
-                                           href="mailto:{{single.email}}" title="{{single.email}}"><i
-                                                *ngIf='single.email !== ""' class="material-icons">email</i></a>
-                                        <a *ngIf='single.team !== ""' class="btn btn-social btn-google-plus" href="#"
-                                           title="{{single.team}}"><i *ngIf='single.team !== ""' class="material-icons">assignment</i></a>
-                                        <a *ngIf='single.phone !== ""' class="btn btn-social btn-twitter" href="#"
-                                           title="{{single.phone}}"><i *ngIf='single.phone !== ""'
-                                                                       class="material-icons">phone</i></a>
-                                        <a *ngIf='single.birth !== ""' class="btn btn-social btn-linkedin" href="#"
-                                           title="{{single.birth}}"><i *ngIf='single.birth !== ""'
-                                                                       class="material-icons">cake</i></a>
+                                        <a *ngIf="single.email !== ''"  class="btn-floating red" href="mailto:{{single.email}}" title="Email de {{single.name}}" target="_blank"><i class="material-icons">email</i></a>
+                                        <a *ngIf="single.phone !== ''" class="btn-floating green" href="tel:{{single.phone}}" title="Numéro de {{single.name}}" target="_blank"><i class="material-icons">smartphone</i></a>
+                                        <a *ngIf="single.website !== ''"  class="btn-floating blue" href="{{single.website}}" title="Site internet de {{single.name}}" target="_blank"><i class="material-icons">reply_all</i></a>
                                     </div>
                                 </div>
                             </div>
@@ -63,20 +55,11 @@
                                             <h5>{{single.name}}<br>
                                                 <small class="role muted">{{single.job}}</small>
                                             </h5>
-                                            <p>"{{single.quote}}"</p><br>
+                                            <p>{{single.quote}}</p><br>
                                             <p>{{single.skills}}</p>
-                                            <a *ngIf='single.email !== ""' class="btn btn-social btn-facebook"
-                                               href="mailto:{{single.email}}" title="{{single.email}}"><i
-                                                    *ngIf='single.email !== ""' class="material-icons">email</i></a>
-                                            <a *ngIf='single.team !== ""' class="btn btn-social btn-google-plus"
-                                               href="#" title="{{single.team}}"><i *ngIf='single.team !== ""'
-                                                                                   class="material-icons">assignment</i></a>
-                                            <a *ngIf='single.phone !== ""' class="btn btn-social btn-twitter" href="#"
-                                               title="{{single.phone}}"><i *ngIf='single.phone !== ""'
-                                                                           class="material-icons">phone</i></a>
-                                            <a *ngIf='single.birth !== ""' class="btn btn-social btn-linkedin" href="#"
-                                               title="{{single.birth}}"><i *ngIf='single.birth !== ""'
-                                                                           class="material-icons">cake</i></a>
+                                            <a *ngIf="single.email !== ''"  class="btn-floating red" href="mailto:{{single.email}}" title="Email de {{single.name}}" target="_blank"><i class="material-icons">email</i></a>
+                                            <a *ngIf="single.phone !== ''" class="btn-floating green" href="tel:{{single.phone}}" title="Numéro de {{single.name}}" target="_blank"><i class="material-icons">smartphone</i></a>
+                                            <a *ngIf="single.website !== ''"  class="btn-floating blue" href="{{single.website}}" title="Site internet de {{single.name}}" target="_blank"><i class="material-icons">reply_all</i></a>
                                         </div>
                                     </div>
                                 </div>

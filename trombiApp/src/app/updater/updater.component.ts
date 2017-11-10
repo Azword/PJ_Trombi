@@ -142,7 +142,7 @@ export class UpdaterComponent implements OnInit {
         }
         else if (n === 1) {
             this.helperTxt.title = 'Post Occupé';
-            this.helperTxt.body = 'Merci de renseigner ici votre emploie (Developpeur, etc..)'
+            this.helperTxt.body = 'Merci de renseigner ici votre emploi (Developpeur, etc..)'
         }
         else if (n === 2) {
             this.helperTxt.title = 'Citation';
