@@ -3,7 +3,7 @@
   "short_name": "PJ Trombi",
   "icons": [
     {
-      "src": "./assets/favicon.png",
+      "src": "http://www.enoviah.fr/trehout/images/avatar.jpg",
       "sizes": "192x192",
       "type": "image/png"
     }
