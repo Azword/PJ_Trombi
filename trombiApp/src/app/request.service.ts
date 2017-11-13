@@ -14,7 +14,7 @@ export class RequestService {
   constructor(private http: Http) { }
 
   login(username: string, password: string) {
-    var url: string = "http://ioda01t.bbo1t.local:8073/api-authentification-1/token/";
+    var url: string = "https://ioda01t.bbo1t.local:8073/api-authentification-1/token/";
     return this.http.post(url, JSON.stringify({password: password, username: username}), {headers: this.headers})
       .toPromise()
       .then(response => response.json())

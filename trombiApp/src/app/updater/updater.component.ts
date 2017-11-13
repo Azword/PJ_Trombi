@@ -77,7 +77,6 @@ export class UpdaterComponent implements OnInit {
             }
         );
         this.global.page++;
-        console.log(this.updateInfo);
     }
 
 
@@ -86,6 +85,7 @@ export class UpdaterComponent implements OnInit {
             success => {
                 console.log(success);
                 this.updateInfo = success.data;
+		$('label').addClass('active');
                 if (this.updateInfo.img) {
                     this.imgLink = this.updateInfo.img;
                 }
