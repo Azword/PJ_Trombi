@@ -49,10 +49,9 @@ export class UpdaterComponent implements OnInit {
 
 
     ngOnInit() {
-        this.global.actualPage = 'Updater';
+        this.global.actualPage = 'Trombinoscope';
         this.updateInfo.uid = this.global.user;
         this.getData();
-        document.title = this.global.titlePage + ' - ' + 'Updater';
         $(document).ready(function () {
             $('select').material_select();
             $('.submit_on_enter').keydown(function(event) {

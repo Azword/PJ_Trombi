@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.global.actualPage = 'Login';
-    document.title = this.global.titlePage + ' - ' + 'Login';
+    this.global.actualPage = 'Trombinoscope';
   }
 
     keyDownFunction(event) {

@@ -12,8 +12,7 @@ export class PostUpdateComponent implements OnInit {
   constructor(private globalVar: GlobalVarService) { }
 
   ngOnInit() {
-    this.global.actualPage = 'Post-Update';
-    document.title = this.global.titlePage + ' - ' + 'Post-Update';
+    this.global.actualPage = 'Trombinoscope';
   }
 
   public tryAgain(): void {
