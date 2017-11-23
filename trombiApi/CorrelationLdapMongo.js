@@ -8,11 +8,13 @@ var uidTabLdap = [];
 var cnTablLdap = [];
 var mailTabLdap = [];
 var goodUID = [];
-opts = {
+var opts = {
   scope: 'sub',
-  attributes: ['cn', 'uid', 'mail'],
-  filter: '(cn=*)'
+  attributes: ['cn', 'uid', 'mail', 'ou'],
+  filter: '(&(cn=*)(ou=DT_*)(!(|(ou=DESACTIVATED)(ou=DESACTIVED))))'
 };
+
+update();
 
 function update() {
   var i = 0;
@@ -94,7 +96,6 @@ function update() {
             }
           } else {
             for (var x = 1; x < uidTabLdap.length; x++) {
-		console.log('a');
               dbManager.create("employees", {
                 "uid": uidTabLdap[x],
                 "name": cnTablLdap[x],
@@ -121,6 +122,4 @@ function update() {
       })
     })
   });
-  process.exit();
-  return;
 }

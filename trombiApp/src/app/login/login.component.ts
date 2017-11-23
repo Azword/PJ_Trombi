@@ -35,10 +35,10 @@ export class LoginComponent implements OnInit {
     }
     this.requestService.login(this.id.user, this.id.pass).then(
       response => {
-        if (response) {
+        if (response.error !== true) {
           if (!(JSON.stringify(response).includes('Forbidden')) && response !== null) {
             this.errorMisc = false;
-            this.global.page++;
+            this.global.page = 3;
             sessionStorage.setItem('username', this.id.user);
             sessionStorage.setItem('token', response.token);
             sessionStorage.setItem('isLogged', 'true');
@@ -46,7 +46,12 @@ export class LoginComponent implements OnInit {
           }
           else {
             this.errorMisc = true;
-            this.errorMsg = 'Invalid Credential';
+	    if (response.type == "error") {
+		this.errorMsg = 'Error when calling AuthAPI';
+	    }
+	    else {
+                this.errorMsg = 'Invalid Credential';
+	    }
           }
         }
       })

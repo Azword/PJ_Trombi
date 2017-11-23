@@ -17,12 +17,27 @@
     clear: both;
 }
 
+.material-icons:hover {
+    color: yellow;
+}
+
 .hide-text {
     font: 0/0 a;
     color: transparent;
     text-shadow: none;
     background-color: transparent;
     border: 0;
+}
+
+#pj_logo {
+ -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition:         transform .8s ease-in-out;
+}
+
+#pj_logo:hover {
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Safari */
+    transform: rotate(360deg);
 }
 
 .input-block-level {

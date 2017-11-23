@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request');
 var db = require('../utils/database');
+
+var options = {
+  uri: 'http://ioda01t.bbo1t.local:8073/api-authentification-1/token/',
+  method: 'POST',
+  json: {
+	"username": "",
+	"password": ""
+  }
+};
 
 router.get('/', function (req, res) {
     res.render('index', {title: 'Express : /api'});
@@ -14,13 +24,11 @@ router.route('/search')
     .get(function (req, res) {
         var response = {};
         db.getAll('employees', function (data, err) {
-            console.log('getAll');
             if (err) {
                 console.log(err);
                 response = {"error": true, "data": "Error getAll"};
             }
             else {
-                console.log(data);
                 response = {"error": false, "data": data};
             }
             res.json(response);
@@ -43,6 +51,24 @@ router.route('/search')
             })
         }
     })
+
+router.route('/login')
+    .post(function (req, res) {
+	var response = {};
+	options.json.username = req.body.username;
+	options.json.password = req.body.password;
+	console.log(JSON.stringify(options));
+	request.post(options, function (error, response, body) {
+	console.log('aaaaa');
+	if (!error && response.statusCode == 200) {
+	  res.json({"error": false});
+	} else {
+	  res.json({"error": true});
+	  console.log(error);
+	}
+     })
+    })
+
 /**
  * @post : updateUser()
  * @delete : deleteUser()

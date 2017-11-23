@@ -76,7 +76,7 @@ export class UpdaterComponent implements OnInit {
                 console.log(error);
             }
         );
-        this.global.page++;
+        this.global.page = 1;
     }
 
 
@@ -120,8 +120,7 @@ export class UpdaterComponent implements OnInit {
 
     _handleReaderLoaded(readerEvt) {
         var binaryString = readerEvt.target.result;
-        this.base64textString = btoa(binaryString);
-        console.log(btoa(binaryString));
+        this.updateInfo.img = btoa(binaryString);
     }
 
     public helper(n): void {

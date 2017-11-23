@@ -24,6 +24,7 @@ exports.get = function(collection, id, callback) {
         funcCallback(res);
         throw err;
       }
+      db.close();
       return callback(res);
     })
     db.close();
@@ -51,6 +52,7 @@ exports.getAll = function(collection, callback) {
         callback(null);
         throw err;
       }
+      db.close();
       return callback(res);
     })
   });
@@ -93,6 +95,7 @@ exports.create = function (collection, content, callback) {
           console.log(err);
           return callback(null);
         } else {
+          db.close();
           return callback(data);
         }
     })
