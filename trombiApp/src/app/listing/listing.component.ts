@@ -15,6 +15,7 @@ export class ListingComponent implements OnInit {
     public global = this.globalVar;
     public clicked = false;
     public allUsers;
+    public autoComplete = {"Salut": null};
     public teamName = [
         {id: 1, name: "CT_ALPHA"},
         {id: 2, name: "CT_CHARLY"},
@@ -34,16 +35,19 @@ export class ListingComponent implements OnInit {
 
     ngOnInit() {
         this.global.actualPage = 'Trombinoscope';
-
         $(document).ready(function () {
             $('.collapsible').collapsible({
                 accordion: true
             });
+	    console.log("////////" + this.autoComplete);
+	    $('input.autocomplete').autocomplete(this.autoComplete);
+			
         });
         if (navigator.onLine) {
             this.requestService.getAll().then(
                 success => {
                     this.allUsers = success.data;
+		    this.getAutocomplete();
                 },
                 error => {
                     console.log(error);
@@ -57,7 +61,16 @@ export class ListingComponent implements OnInit {
                 this.global.errorUpdate = true;
             }
             this.allUsers = this.allUsers.data;
+            this.getAutocomplete();
         }
+    }
+   
+    getAutocomplete() {
+	for (var i = 0; i < this.allUsers.length; i++)
+	{
+	   this.autoComplete[this.allUsers[i].name] = null;
+	}
+	console.log(this.autoComplete);
     }
 
     myFn() {
