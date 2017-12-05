@@ -15,7 +15,7 @@ export class ListingComponent implements OnInit {
     public global = this.globalVar;
     public clicked = false;
     public allUsers;
-    public autoComplete = {"Salut": null};
+    public autoComplete = {};
     public teamName = [
         {id: 1, name: "CT_ALPHA"},
         {id: 2, name: "CT_CHARLY"},
@@ -39,15 +39,14 @@ export class ListingComponent implements OnInit {
             $('.collapsible').collapsible({
                 accordion: true
             });
-	    console.log("////////" + this.autoComplete);
-	    $('input.autocomplete').autocomplete(this.autoComplete);
-			
         });
         if (navigator.onLine) {
             this.requestService.getAll().then(
                 success => {
                     this.allUsers = success.data;
 		    this.getAutocomplete();
+		    $('input.autocomplete').autocomplete({data: this.autoComplete});
+		    console.log("sdfsdfsdfsdfsd" + this.autoComplete);
                 },
                 error => {
                     console.log(error);
@@ -62,6 +61,7 @@ export class ListingComponent implements OnInit {
             }
             this.allUsers = this.allUsers.data;
             this.getAutocomplete();
+	    $('input.autocomplete').autocomplete(this.autoComplete);	    
         }
     }
    
